@@ -45,7 +45,7 @@ data "google_compute_subnetwork" "subnetwork" {
 
 module "composer-v2-private" {
   #TODO Fix source when v3.2.0 is released
-  source                           = "github.com/majduk/terraform-google-composer.git?ref=20efd9da606af3f57343420eb0888139157f9d05/modules/create_environment_v2"
+  source                           = "github.com/majduk/terraform-google-composer.git/modules/create_environment_v2"
   #version                          = "~>3.2.0"
   project_id                       = var.project_id
   composer_env_name                = var.composer_env_name
@@ -66,6 +66,7 @@ module "composer-v2-private" {
   pypi_packages                    = var.pypi_packages
   tags                             = var.tags
   cloud_composer_network_ipv4_cidr_block = var.composer_network_ipv4_cidr
+  cloud_composer_connection_subnetwork   = "projects/${var.network_project_id}/regions/${var.subnetwork_region}/subnetworks/${var.subnetwork}"
   enable_private_endpoint	         = true
   use_private_environment          = true
   environment_size                 = "ENVIRONMENT_SIZE_LARGE"
