@@ -76,6 +76,8 @@ module "composer-v2-env" {
   image_version                    = each.value.software_config.image_version
   pypi_packages                    = each.value.software_config.pypi_packages
   python_version                   = each.value.software_config.python_version
+  composer_service_account_create  = each.value.composer_service_account_create
+  composer_service_account         = each.value.composer_service_account
   depends_on = [
     module.shared,
   ]

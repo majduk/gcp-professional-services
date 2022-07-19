@@ -94,6 +94,8 @@ variable "composer_v2_private_envs" {
     control_plane_cidr          = string
     composer_network_ipv4_cidr  = string
     cloud_sql_cidr              = string
+    composer_service_account_create = bool
+    composer_service_account    = string
     tags                        = list(string)
     software_config = object({
       airflow_config_overrides = map(string)
